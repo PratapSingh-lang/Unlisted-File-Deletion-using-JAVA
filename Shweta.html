@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Disappear</title>
+  <style>
+    #myButton {
+      /* Optional: Some basic styling for the button */
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #acceptDate {
+      /* Optional: Some basic styling for the button */
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+    <h1>Hey Shweta!</h1>
+    <!-- <p id="questionText"></p> -->
+    <p id="questionText" > "Would you like to go on a date with me? I dare you to say No! 😉";</p>
+    <p id="infoText"></p>
+    <button id="acceptDate" onclick="acceptDate()">yes</button>
+  <button id="myButton" onclick="hideButton()">No</button>
+  
+  <p id="acceptedText"></p>
+
+  <script>
+
+    function acceptDate() {
+        var acceptedText = document.getElementById('acceptedText');
+        acceptedText.innerText = "Yayy! Can't wait for our date! 😊❤️  &#x1F60A;&#x2764;&#xFE0F; ";
+        infoText.innerText = "";
+        questionText.innerText = "";  
+        // Disable the "No" button after clicking "Yes"
+        var noButton = document.getElementById('myButton');
+            // noButton.disabled = true;  
+            noButton.style.display = 'none';
+            var yesButton = document.getElementById("acceptDate");
+        // yesButton.disabled = true;
+        yesButton.style.display = 'none';
+    }
+
+    function hideButton() {
+        acceptedText.innerText="";
+      var button = document.getElementById('myButton');
+      var infoText = document.getElementById('infoText');
+      
+      button.style.display = 'none'; // Hide the button when clicked
+      infoText.innerText = 'Processing your request...';
+        var yesButton = document.getElementById("acceptDate");
+        // yesButton.disabled = true;
+        yesButton.style.display = 'none';
+      setTimeout(function() {
+        button.style.display = 'block'; // Show the button after a delay (e.g., 1 seconds)
+        infoText.innerText = 'Oops! Please try again. Maybe it ran away for a coffee?😅';
+        // yesButton.disabled = false;
+        yesButton.style.display = 'block';
+      }, 1000); 
+    }
+  </script>
+</body>
+</html>
